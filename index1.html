@@ -1,0 +1,42 @@
+<form action="index.php" method="post">
+    First Name :
+    <input type="text" name="fname" id="fname"><br><br>
+    Last Name :
+    <input type="text" name="lname" id="lname"><br><br>
+    Mob No. :
+    <input type="text" name="mobno." id="mobno."><BR><BR>
+    Gmail :
+    <input type="text" name="gmail" id="gmail"><BR><BR>
+    <input type="submit">
+</form>
+
+<?php
+     $servername="localhost";
+     $username="root";
+     $password="";
+     $dbname="Reg Form";
+
+     $conn=new mysqli($servername,$username,$password,$dbname);
+     if($conn->connect_error)
+     {
+        die("connection fail");
+     }
+ 
+    $fname=$_POST['fname'];
+    $lname=$_POST['lname'];
+    $mobno.=$_POST['mobno.'];
+    $gmail=$_POST['gmail'];
+
+    $sql="INSERT INTO `REG FORMLOGIN` (`sr`, `fname`, `lname`, `mob no.`, `gmail`) VALUES (NULL, '$fname', '$lname', '$mobno.', '$gmail')";
+
+if($conn->query($sql)==true)
+{
+  echo "New Record Added";
+
+}    
+else{
+echo "Error";
+
+}
+$conn->close();
+?>
